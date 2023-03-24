@@ -64,15 +64,11 @@ function buildStart(compilation) {
               const igIndex = igs.findIndex((ig) => actualImp.includes(ig) );
 
               if (igIndex > -1) {
-                
                 const isIg =  igs.find(i=>file.includes(i))
-
                 if(isIg) continue
-
                 console.warn(
                   `文件(${file})中的(${imp})与配置的文件(${this.igs[igIndex]})存在引用关系，请检查`
                 );
-                debugger
                 global.conflict = true;
                 break;
               }
