@@ -1,6 +1,6 @@
 # webpack-skip-compile
 
-将项目中不使用的的文件内容略过webpack编译
+将项目中不使用的文件或文件夹略过webpack编译，从而提升编译速度
 
 ## 安装
 
