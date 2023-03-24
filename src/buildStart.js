@@ -3,6 +3,7 @@ const fg = require("fast-glob");
 const fs = require("fs");
 const strip = require("strip-comments");
 const { getCode, parseImports, createInitial } = require("./helper");
+const { Console } = require("console");
 
 function buildStart(compilation) {
   createInitial(this.pluginName);
@@ -60,12 +61,18 @@ function buildStart(compilation) {
               } else {
                 actualImp = path.resolve(file, imp);
               }
-              const igIndex = igs.findIndex((ig) => actualImp.includes(ig));
+              const igIndex = igs.findIndex((ig) => actualImp.includes(ig) );
 
               if (igIndex > -1) {
+                
+                const isIg =  igs.find(i=>file.includes(i))
+
+                if(isIg) continue
+
                 console.warn(
                   `文件(${file})中的(${imp})与配置的文件(${this.igs[igIndex]})存在引用关系，请检查`
                 );
+                debugger
                 global.conflict = true;
                 break;
               }
