@@ -1,6 +1,6 @@
 {
   "name": "webpack-skip-compile",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "指定文件跳过webpack编译",
   "main": "./dist/index.js",
   "scripts": {

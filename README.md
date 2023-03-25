@@ -16,13 +16,20 @@
     }
     const SkipCompile = require("webpack-skip-compile")
     new SkipCompile('src/pages',[
-      'dataCenter'
+      'dataCenter',
+      {
+        file:'orderList',
+        exclude:[
+          'constants'
+        ]
+      }
     ],{
       alias:[{
         key:'@',
         value:resolve('src')
       }],
-      include:['.vue']
+      checkType:['.vue'],
+      skipQuoteCheck:false
     })
 ```
 
@@ -38,4 +45,8 @@
 
 - 参数三
 
-    辅助项，由alias和include组成，前者是在项目中使用的别名，后者是用于指定过滤哪些文件
+    辅助项
+
+    1-alias：在webpack中配置的别名
+    2-checkType：需要校验引用关系的文件
+    3-skipQuoteCheck：是否跳过引用关系检查，建议本地添加新的过滤文件时启用检查，发布生产时关闭
