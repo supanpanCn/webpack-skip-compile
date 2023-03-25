@@ -10,7 +10,7 @@ class SkipCompile {
       skipQuoteCheck:false,
     }
   ) {
-    const { alias, checkType , skipQuoteCheck  } = extra;
+    const { alias=[], checkType=[] , skipQuoteCheck=false  } = extra;
     this.igs = igs;
     this.entry = entry;
     this.pluginName = "wepack-skip-compile";
